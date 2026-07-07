@@ -52,7 +52,6 @@
           const heightCm = Number(document.querySelector("#height").value);
           const weight = Number(document.querySelector("#weight").value);
 
-          // 未入力・0以下・数値でない場合をまとめて弾く
           if (!heightCm || !weight || heightCm <= 0 || weight <= 0) {
             result.textContent = "身長(cm)と体重(kg)に1以上の数値を入力してください";
             return;
