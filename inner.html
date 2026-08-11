@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チームメンバー一覧</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-4 lg:p-8">
+    <h1 class="text-2xl lg:text-3xl font-bold mb-6">チームメンバー</h1>
+
+    <!-- ① 絞り込みボタン -->
+    <div id="filterButtons" class="flex flex-wrap gap-2 mb-6">
+      <button data-role="all"        class="px-4 py-2 bg-blue-600 text-white rounded shadow">全員</button>
+      <button data-role="エンジニア"   class="px-4 py-2 bg-white rounded shadow">エンジニア</button>
+      <button data-role="デザイナー"   class="px-4 py-2 bg-white rounded shadow">デザイナー</button>
+      <button data-role="PdM"        class="px-4 py-2 bg-white rounded shadow">PdM</button>
+    </div>
+
+    <div id="memberList" class="grid gap-4 lg:grid-cols-3"></div>
+
+    <script>
+      const members = [
+        { name: "田中太郎",     role: "デザイナー",  comment: "UIにこだわっています" },
+        { name: "鈴木花子",     role: "エンジニア",  comment: "バックエンドが得意です" },
+        { name: "佐藤次郎",     role: "PdM",        comment: "ユーザー視点を大切に" },
+        { name: "梶井基次郎",   role: "PdM",        comment: "求める人に届けます" },
+        { name: "近松門左衛門", role: "エンジニア",  comment: "チームとあなたに活気をもたせます" },
+      ];
+
+      const memberList = document.getElementById("memberList");
+
+      // ② 「配列を受け取って描画する」関数に切り出す
+      function render(list) {
+        memberList.innerHTML = "";   // ← 前回の表示を消す（これが超重要）
+
+        list.forEach((member) => {
+          const card = document.createElement("div");
+          card.className = "bg-white rounded-lg shadow p-6 lg:p-4";
+          card.innerHTML = `
+            <h2 class="text-2xl lg:text-lg font-bold">${member.name}</h2>
+            <p class="text-blue-600 text-base lg:text-sm">${member.role}</p>
+            <p class="text-gray-600 text-lg lg:text-base mt-2">${member.comment}</p>
+          `;
+          memberList.appendChild(card);
+        });
+      }
+
+      // ③ ボタンのクリックで filter して render を呼び分ける
+      const filterButtons = document.getElementById("filterButtons");
+
+      filterButtons.addEventListener("click", (e) => {
+        const role = e.target.dataset.role;   // data-role の値を取得
+        if (!role) return;                    // ボタン以外を押したら無視
+
+        if (role === "all") {
+          render(members);                    // 全員
+        } else {
+          const filtered = members.filter((m) => m.role === role);
+          render(filtered);                   // 絞り込み結果だけ描画
+        }
+      });
+
+      // ④ 最初の表示（全員）
+      render(members);
+    </script>
+  </body>
+</html>
