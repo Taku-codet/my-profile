@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポートフォリオ</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ヘッダー -->
+  <header class="bg-indigo-600 text-white py-8 text-center">
+    <h1 class="text-3xl font-bold">あだ名のポートフォリオ</h1>
+    <p class="mt-2 text-indigo-200">POSSEでプログラミングを学んでいます</p>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12 space-y-16">
+
+    <!-- 自己紹介 -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">自己紹介</h2>
+      <p class="text-gray-600 leading-relaxed">
+        こんにちは！Web制作を学んでいます。
+      </p>
+    </section>
+
+    <!-- スキルリスト -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">スキル</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li class="transition-all duration-200 hover:scale-105 hover:-translate-y-1
+                   bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+          HTML
+        </li>
+        <li class="transition-all duration-200 hover:scale-105 hover:-translate-y-1
+                   bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+          Tailwind CSS
+        </li>
+        <li class="transition-all duration-200 hover:scale-105 hover:-translate-y-1
+                   bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+          JavaScript
+        </li>
+      </ul>
+    </section>
+
+    <!-- 作品スライダー -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">作品</h2>
+      <section class="splide" aria-label="作品スライダー">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="relative group">
+               <img src="./img/aoikamen.jpg" alt="作品1"
+                    class="w-full rounded-lg object-cover">
+                <div class="absolute inset-0 bg-black/50 rounded-lg
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                            flex items-center justify-center">
+                 <span class="text-white font-bold text-lg">詳細を見る</span>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="relative group">
+               <img src="./img/guti.jpg" alt="作品1"
+                    class="w-full rounded-lg object-cover">
+                <div class="absolute inset-0 bg-black/50 rounded-lg
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                            flex items-center justify-center">
+                 <span class="text-white font-bold text-lg">詳細を見る</span>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="relative group">
+               <img src="./img/rada.jpg" alt="作品1"
+                    class="w-full rounded-lg object-cover">
+                <div class="absolute inset-0 bg-black/50 rounded-lg
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                            flex items-center justify-center">
+                 <span class="text-white font-bold text-lg">詳細を見る</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-16">
+    <p>2026 あだ名</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
