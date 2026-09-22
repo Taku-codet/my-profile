@@ -1,1 +1,4 @@
 checktest_ph1_test3/
+node_modules/
+vanilla-vs-react-demo/
+dist/
